@@ -8,7 +8,11 @@ contract ShalukeToken {
     // Should we import the event or redeclare as we have done here?
     event Transfer(address indexed from, address indexed to, uint256 value);
 
-    function transfer(address to, uint256 amount) external pure returns (bool) {
+    constructor(uint256 initialSupply) {
+        balances[msg.sender] = initialSupply;
+    }
+
+    function transfer(address to, uint256 amount) external returns (bool) {
         if (balances[msg.sender] < amount) {
             return false;
         }
