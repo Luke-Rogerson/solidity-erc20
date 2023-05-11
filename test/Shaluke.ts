@@ -61,8 +61,7 @@ describe('balanceOf', () => {
 
 describe('totalSupply', () => {
     it('should return the initial balance', async () => {
-        const { shalukeToken } = await loadFixture(deployShalukeFixture(1000));
-
+        const { shalukeToken, owner, otherAccount } = await loadFixture(deployShalukeFixture(1000));
         const totalSupply = await shalukeToken.totalSupply();
         expect(totalSupply).to.equal(ethers.utils.parseUnits('1000', 'ether'));
     });
